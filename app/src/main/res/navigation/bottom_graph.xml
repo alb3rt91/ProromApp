@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_graph.xml"
+    app:startDestination="@id/bottom1Fragment">
+
+    <fragment
+        android:id="@+id/bottom1Fragment"
+        android:name="com.example.prorom.Bottom1Fragment"
+        tools:layout="@layout/fragment_bottom1" >
+        <action
+            android:id="@+id/action_bottom1Fragment_to_tiposPiscinas"
+            app:destination="@id/tiposPiscinas" />
+    </fragment>
+    <fragment
+        android:id="@+id/bottom2Fragment"
+        android:name="com.example.prorom.Bottom2Fragment"
+        tools:layout="@layout/fragment_bottom2" />
+    <fragment
+        android:id="@+id/bottom3Fragment"
+        android:name="com.example.prorom.Bottom3Fragment"
+        tools:layout="@layout/fragment_bottom3" />
+    <fragment
+        android:id="@+id/tiposPiscinas"
+        android:name="com.example.prorom.TiposPiscinas"
+        tools:layout="@layout/fragment_tipos_piscinas" >
+        <action
+            android:id="@+id/action_tiposPiscinas_to_rectangular"
+            app:destination="@id/rectangular" />
+        <action
+            android:id="@+id/action_tiposPiscinas_to_rectangular_Romana"
+            app:destination="@id/rectangular_Romana" />
+        <action
+            android:id="@+id/action_tiposPiscinas_to_rectangular_Rectangular"
+            app:destination="@id/rectangular_Rectangular" />
+    </fragment>
+    <fragment
+        android:id="@+id/rectangular"
+        android:name="com.example.prorom.Rectangular"
+        tools:layout="@layout/fragment_rectangular" >
+        <action
+            android:id="@+id/action_rectangular_to_bottom1Fragment"
+            app:destination="@id/bottom1Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rectangular_Romana"
+        android:name="com.example.prorom.Rectangular_Romana"
+        tools:layout="@layout/fragment_rectangular__romana" >
+        <action
+            android:id="@+id/action_rectangular_Romana_to_bottom1Fragment"
+            app:destination="@id/bottom1Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rectangular_Rectangular"
+        android:name="com.example.prorom.Rectangular_Rectangular"
+        tools:layout="@layout/fragment_rectangular__rectangular" >
+        <action
+            android:id="@+id/action_rectangular_Rectangular_to_bottom1Fragment"
+            app:destination="@id/bottom1Fragment" />
+    </fragment>
+</navigation>

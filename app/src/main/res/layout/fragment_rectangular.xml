@@ -1,0 +1,255 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Rectangular">
+
+    <!-- Recuadro para el nombre del proyecto -->
+    <EditText
+        android:id="@+id/etNombreProyecto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del proyecto"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:backgroundTint="@color/input_blue"
+        android:textColor="@color/text_blue"
+        android:textColorHint="@color/accent_orange"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp" />
+
+    <!-- Primera fila: m, x, M -->
+    <TextView
+        android:id="@+id/tvM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="24dp"
+        android:text="m"
+        android:textColor="@color/text_blue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNombreProyecto" />
+
+    <TextView
+        android:id="@+id/tvX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="24dp"
+        android:text="x"
+        android:textColor="@color/text_blue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/tvM"
+        app:layout_constraintTop_toBottomOf="@id/etNombreProyecto" />
+
+    <!-- Recuadros para m y M -->
+    <TextView
+        android:id="@+id/tvCapitalM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="24dp"
+        android:text="M"
+        android:textColor="@color/text_blue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/tvX"
+        app:layout_constraintTop_toBottomOf="@id/etNombreProyecto" />
+
+    <EditText
+        android:id="@+id/etValorM"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Introduce m"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:backgroundTint="@color/input_blue"
+        android:textColor="@color/text_blue"
+        android:textColorHint="@color/accent_orange"
+        android:inputType="numberDecimal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tvM"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/etValorCapitalM"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/etValorCapitalM"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Introduce M"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:backgroundTint="@color/input_blue"
+        android:textColor="@color/text_blue"
+        android:textColorHint="@color/accent_orange"
+        android:inputType="numberDecimal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tvCapitalM"
+        app:layout_constraintStart_toEndOf="@id/etValorM"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp" />
+
+    <!-- Segunda fila: h, x, H -->
+    <TextView
+        android:id="@+id/tvH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="32dp"
+        android:text="h"
+        android:textColor="@color/text_blue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etValorCapitalM" />
+
+    <TextView
+        android:id="@+id/tvXH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="32dp"
+        android:text="--"
+        android:textColor="@color/text_blue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/tvH"
+        app:layout_constraintTop_toBottomOf="@id/etValorCapitalM" />
+
+    <!-- Recuadros para h y H -->
+    <TextView
+        android:id="@+id/tvCapitalH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="32dp"
+        android:text="H"
+        android:textColor="@color/text_blue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/tvXH"
+        app:layout_constraintTop_toBottomOf="@id/etValorCapitalM" />
+
+    <EditText
+        android:id="@+id/etValorH"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="Introduce h"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:backgroundTint="@color/input_blue"
+        android:textColor="@color/text_blue"
+        android:textColorHint="@color/accent_orange"
+        android:inputType="numberDecimal"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@id/etValorCapitalH"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvH" />
+
+    <EditText
+        android:id="@+id/etValorCapitalH"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Introduce H"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:backgroundTint="@color/input_blue"
+        android:textColor="@color/text_blue"
+        android:textColorHint="@color/accent_orange"
+        android:inputType="numberDecimal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tvCapitalH"
+        app:layout_constraintStart_toEndOf="@id/etValorH"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp" />
+
+    <!-- Resultado de las operaciones -->
+    <TextView
+        android:id="@+id/tvResultadoSolera"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Solera: "
+        android:textSize="16sp"
+        android:textColor="@color/text_blue"
+        app:layout_constraintTop_toBottomOf="@id/etValorCapitalH"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp" />
+
+    <TextView
+        android:id="@+id/tvResultadoMuros"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Muros: "
+        android:textSize="16sp"
+        android:textColor="@color/text_blue"
+        app:layout_constraintTop_toBottomOf="@id/tvResultadoSolera"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="16dp" />
+
+    <TextView
+        android:id="@+id/tvResultadoTotalSuperficie"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Total Superficie: "
+        android:textSize="16sp"
+        android:textColor="@color/text_blue"
+        app:layout_constraintTop_toBottomOf="@id/tvResultadoMuros"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="16dp" />
+
+    <TextView
+        android:id="@+id/tvResultadoPerimetroPiscina"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Perímetro: "
+        android:textSize="16sp"
+        android:textColor="@color/text_blue"
+        app:layout_constraintTop_toBottomOf="@id/tvResultadoTotalSuperficie"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="16dp" />
+
+    <TextView
+        android:id="@+id/tvResultadoMediacanas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Mediacañas: "
+        android:textSize="16sp"
+        android:textColor="@color/text_blue"
+        app:layout_constraintTop_toBottomOf="@id/tvResultadoPerimetroPiscina"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="16dp" />
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:backgroundTint="@color/button_blue"
+        android:textColor="@color/button_text_white"
+        app:layout_constraintTop_toBottomOf="@id/tvResultadoMediacanas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
