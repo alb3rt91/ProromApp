@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Opción para el fragmento principal (Home) -->
     <item
         android:id="@+id/bottom1Fragment"
         android:icon="@drawable/ic_home"
         android:title="Home" />
 
+    <!-- Opción para el fragmento de resultados -->
     <item
         android:id="@+id/bottom2Fragment"
         android:icon="@drawable/ic_results"
         android:title="Resultados" />
 
+    <!-- Opción para el fragmento de ajustes -->
     <item
         android:id="@+id/bottom3Fragment"
         android:icon="@drawable/ic_settings"

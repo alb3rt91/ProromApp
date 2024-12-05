@@ -9,34 +9,29 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link Bottom3Fragment#newInstance} factory method to
- * create an instance of this fragment.
+ * Fragmento simple para Bottom3.
  */
 public class Bottom3Fragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    // Constantes para los argumentos del fragmento.
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+    // Variables para los parámetros.
     private String mParam1;
     private String mParam2;
 
     public Bottom3Fragment() {
-        // Required empty public constructor
+        // Constructor público requerido.
     }
 
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
+     * Método de fábrica para crear una nueva instancia del fragmento.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Bottom3Fragment.
+     * @param param1 Parámetro 1.
+     * @param param2 Parámetro 2.
+     * @return Nueva instancia de Bottom3Fragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static Bottom3Fragment newInstance(String param1, String param2) {
         Bottom3Fragment fragment = new Bottom3Fragment();
         Bundle args = new Bundle();
@@ -50,6 +45,7 @@ public class Bottom3Fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            // Obtiene los parámetros desde los argumentos.
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
@@ -58,7 +54,7 @@ public class Bottom3Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Infla el diseño del fragmento.
         return inflater.inflate(R.layout.fragment_bottom3, container, false);
     }
 }

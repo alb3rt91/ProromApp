@@ -15,29 +15,31 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 
+/**
+ * Fragmento para gestionar proyectos rectangulares con escaleras rectangulares.
+ */
 public class Rectangular_Rectangular extends Fragment {
 
-    // Campos de entrada
+    // Campos de entrada.
     private EditText etNombreProyectoRectangular, etValorMRectangular, etValorCapitalMRectangular, etValorHRectangular, etValorCapitalHRectangular,
             etValorEscalera1Rectangular, etValorEscalera2Rectangular;
 
+    // Resultados.
+    private TextView tvResultadoSoleraRectangular, tvResultadoMurosRectangular, tvResultadoMurosYSoleraRectangular,
+            tvResultadoTotalEscaleraRectangular, tvResultadoTotalPiscinaRectangular, tvResultadoPerimetroPiscinaRectangular, tvResultadoMediacanasRectangular;
+
     private RectangularRectangularViewModel rectangularRectangularViewModelViewModel;
 
-    // Resultados
-    private TextView tvResultadoSoleraRectangular, tvResultadoMurosRectangular, tvResultadoMurosYSoleraRectangular,tvResultadoTotalEscaleraRectangular,
-            tvResultadoTotalPiscinaRectangular, tvResultadoPerimetroPiscinaRectangular, tvResultadoMediacanasRectangular;
-
     public Rectangular_Rectangular() {
-        super(R.layout.fragment_rectangular__rectangular);
+        super(R.layout.fragment_rectangular__rectangular); // Asocia el diseño al fragmento.
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Inicializar los campos de entrada
+        // Inicializar los campos de entrada.
         etNombreProyectoRectangular = view.findViewById(R.id.etNombreProyectoRectangular);
         etValorMRectangular = view.findViewById(R.id.etValorMRectangular);
         etValorCapitalMRectangular = view.findViewById(R.id.etValorCapitalMRectangular);
@@ -46,7 +48,7 @@ public class Rectangular_Rectangular extends Fragment {
         etValorEscalera1Rectangular = view.findViewById(R.id.etValorEscalera1Rectangular);
         etValorEscalera2Rectangular = view.findViewById(R.id.etValorEscalera2Rectangular);
 
-        // Inicializar los TextViews para los resultados
+        // Inicializar los TextViews para los resultados.
         tvResultadoSoleraRectangular = view.findViewById(R.id.tvResultadoSoleraRectangular);
         tvResultadoMurosRectangular = view.findViewById(R.id.tvResultadoMurosRectangular);
         tvResultadoMurosYSoleraRectangular = view.findViewById(R.id.tvResultadoMurosYSoleraRectangular);
@@ -55,15 +57,13 @@ public class Rectangular_Rectangular extends Fragment {
         tvResultadoPerimetroPiscinaRectangular = view.findViewById(R.id.tvResultadoPerimetroPiscinaRectangular);
         tvResultadoMediacanasRectangular = view.findViewById(R.id.tvResultadoMediacanasRectangular);
 
-        // Añadir TextWatchers para calcular los resultados automáticamente
+        // Configurar TextWatchers para calcular automáticamente los resultados.
         TextWatcher textWatcher = new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -71,6 +71,7 @@ public class Rectangular_Rectangular extends Fragment {
             }
         };
 
+        // Añadir TextWatchers a los campos de entrada.
         etValorMRectangular.addTextChangedListener(textWatcher);
         etValorCapitalMRectangular.addTextChangedListener(textWatcher);
         etValorHRectangular.addTextChangedListener(textWatcher);
@@ -78,14 +79,16 @@ public class Rectangular_Rectangular extends Fragment {
         etValorEscalera1Rectangular.addTextChangedListener(textWatcher);
         etValorEscalera2Rectangular.addTextChangedListener(textWatcher);
 
-        rectangularRectangularViewModelViewModel= new ViewModelProvider(requireActivity()).get(RectangularRectangularViewModel.class);
+        // Inicializar el ViewModel.
+        rectangularRectangularViewModelViewModel = new ViewModelProvider(requireActivity()).get(RectangularRectangularViewModel.class);
 
+        // Configurar el botón de guardar.
         Button btnGuardar = view.findViewById(R.id.btnGuardarRectangular);
-        btnGuardar.setOnClickListener(v -> guardarProyecto(v));
+        btnGuardar.setOnClickListener(this::guardarProyecto);
     }
 
+    // Calcula los resultados con base en los valores ingresados.
     private void calcularResultados() {
-        // Obtener los valores de los campos
         double m = obtenerValorDeCampo(etValorMRectangular);
         double M = obtenerValorDeCampo(etValorCapitalMRectangular);
         double h = obtenerValorDeCampo(etValorHRectangular);
@@ -93,7 +96,7 @@ public class Rectangular_Rectangular extends Fragment {
         double l = obtenerValorDeCampo(etValorEscalera1Rectangular);
         double L = obtenerValorDeCampo(etValorEscalera2Rectangular);
 
-        // Calcular resultados
+        // Realizar cálculos.
         double solera = m * M;
         double muros = M * (h + H) + H * m + (m - L) * h;
         double soleraYMuros = solera + muros;
@@ -104,7 +107,7 @@ public class Rectangular_Rectangular extends Fragment {
         double perimetro = 2 * m + 2 * M + 2 * l;
         double mediacanas = 2 * (M + m) + 2 * (h + H);
 
-        // Mostrar resultados en los TextViews
+        // Actualizar los TextViews con los resultados.
         tvResultadoSoleraRectangular.setText(String.format("Solera: %.2f m²", solera));
         tvResultadoMurosRectangular.setText(String.format("Muros: %.2f m²", muros));
         tvResultadoMurosYSoleraRectangular.setText(String.format("Solera y Muros: %.2f m²", soleraYMuros));
@@ -114,6 +117,7 @@ public class Rectangular_Rectangular extends Fragment {
         tvResultadoMediacanasRectangular.setText(String.format("Mediacañas: %.2f ml", mediacanas));
     }
 
+    // Obtiene el valor numérico de un campo de entrada.
     private double obtenerValorDeCampo(EditText campo) {
         String texto = campo.getText().toString().trim();
         if (texto.isEmpty()) {
@@ -122,10 +126,11 @@ public class Rectangular_Rectangular extends Fragment {
         try {
             return Double.parseDouble(texto);
         } catch (NumberFormatException e) {
-            return 0.0; // Si el texto no es un número válido, devolvemos 0
+            return 0.0; // Si el texto no es válido, devuelve 0.
         }
     }
 
+    // Guarda el proyecto y navega de regreso.
     private void guardarProyecto(View view) {
         String nombreProyecto = etNombreProyectoRectangular.getText().toString().trim();
         if (nombreProyecto.isEmpty()) {
@@ -133,7 +138,7 @@ public class Rectangular_Rectangular extends Fragment {
             return;
         }
 
-        // Preparar detalles
+        // Crear detalles del proyecto.
         String detallesRectangular = String.format(
                 " %s\n %s\n  %s\n %s\n %s\n %s\n %s\n",
                 tvResultadoSoleraRectangular.getText().toString(),
@@ -145,13 +150,13 @@ public class Rectangular_Rectangular extends Fragment {
                 tvResultadoMediacanasRectangular.getText().toString()
         );
 
-        // Crear un nuevo proyecto y agregarlo al ViewModel
+        // Agregar proyecto al ViewModel.
         RectangularRectangularProject proyecto = new RectangularRectangularProject(nombreProyecto, detallesRectangular);
         rectangularRectangularViewModelViewModel.addProject(proyecto);
 
         Toast.makeText(requireContext(), "Proyecto guardado exitosamente", Toast.LENGTH_SHORT).show();
 
-        // Limpiar los campos
+        // Limpiar los campos de entrada.
         etNombreProyectoRectangular.setText("");
         etValorMRectangular.setText("");
         etValorCapitalMRectangular.setText("");
@@ -160,9 +165,8 @@ public class Rectangular_Rectangular extends Fragment {
         etValorEscalera1Rectangular.setText("");
         etValorEscalera2Rectangular.setText("");
 
-        // Navegar de vuelta al bottom1Fragment
+        // Navegar de regreso al fragmento anterior.
         NavController navController = Navigation.findNavController(view);
         navController.navigate(R.id.action_rectangular_Rectangular_to_bottom1Fragment);
-
     }
 }

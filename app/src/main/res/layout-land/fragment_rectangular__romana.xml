@@ -1,0 +1,329 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Rectangular_Romana"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- Recuadro para el nombre del proyecto -->
+        <EditText
+            android:id="@+id/etNombreProyectoRomana"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del proyecto"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:backgroundTint="@color/input_blue"
+            android:textColor="@color/text_blue"
+            android:textColorHint="@color/accent_orange"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="24dp" />
+
+        <!-- Primera fila: m, x, M -->
+        <TextView
+            android:id="@+id/tvMRomana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="24dp"
+            android:text="m"
+            android:textColor="@color/text_blue"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etNombreProyectoRomana" />
+
+        <TextView
+            android:id="@+id/tvXRomana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="104dp"
+            android:layout_marginTop="24dp"
+            android:text="x"
+            android:textColor="@color/text_blue"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/tvMRomana"
+            app:layout_constraintTop_toBottomOf="@id/etNombreProyectoRomana" />
+
+        <TextView
+            android:id="@+id/tvCapitalMRomana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="24dp"
+            android:text="M"
+            android:textColor="@color/text_blue"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/tvXRomana"
+            app:layout_constraintTop_toBottomOf="@id/etNombreProyectoRomana" />
+
+        <EditText
+            android:id="@+id/etValorMRomana"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Introduce m"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:backgroundTint="@color/input_blue"
+            android:textColor="@color/text_blue"
+            android:textColorHint="@color/accent_orange"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tvMRomana"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/etValorCapitalMRomana"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/etValorCapitalMRomana"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Introduce M"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:backgroundTint="@color/input_blue"
+            android:textColor="@color/text_blue"
+            android:textColorHint="@color/accent_orange"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tvCapitalMRomana"
+            app:layout_constraintStart_toEndOf="@id/etValorMRomana"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp" />
+
+        <!-- Segunda fila: h, x, H -->
+        <TextView
+            android:id="@+id/tvHRomana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="32dp"
+            android:text="h"
+            android:textColor="@color/text_blue"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etValorCapitalMRomana" />
+
+        <TextView
+            android:id="@+id/tvXHRomana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="108dp"
+            android:layout_marginTop="32dp"
+            android:text="--"
+            android:textColor="@color/text_blue"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/tvHRomana"
+            app:layout_constraintTop_toBottomOf="@id/etValorCapitalMRomana" />
+
+        <TextView
+            android:id="@+id/tvCapitalHRomana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="32dp"
+            android:text="H"
+            android:textColor="@color/text_blue"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/tvXHRomana"
+            app:layout_constraintTop_toBottomOf="@id/etValorCapitalMRomana" />
+
+        <EditText
+            android:id="@+id/etValorHRomana"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:hint="Introduce h"
+            android:backgroundTint="@color/input_blue"
+            android:textColor="@color/text_blue"
+            android:textColorHint="@color/accent_orange"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            app:layout_constraintEnd_toStartOf="@id/etValorCapitalHRomana"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHRomana" />
+
+        <EditText
+            android:id="@+id/etValorCapitalHRomana"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Introduce H"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:backgroundTint="@color/input_blue"
+            android:textColor="@color/text_blue"
+            android:textColorHint="@color/accent_orange"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tvCapitalHRomana"
+            app:layout_constraintStart_toEndOf="@id/etValorHRomana"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp" />
+
+        <!-- Nueva fila: Escalera -->
+        <TextView
+            android:id="@+id/tvEscalera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Escalera"
+            android:textSize="18sp"
+            android:textColor="@color/text_blue"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toBottomOf="@id/etValorCapitalHRomana"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/etValorEscalera"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Introduce radio escalera"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:backgroundTint="@color/input_blue"
+            android:textColor="@color/text_blue"
+            android:textColorHint="@color/accent_orange"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/etValorCapitalHRomana"
+            app:layout_constraintStart_toEndOf="@id/tvEscalera"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <!-- Resultados de las operaciones -->
+        <TextView
+            android:id="@+id/tvResultadoSoleraRomana"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Solera: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/etValorEscalera"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <TextView
+            android:id="@+id/tvResultadoMurosRomana"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Muros: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoSoleraRomana"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <TextView
+            android:id="@+id/tvResultadoMurosYSoleraRomana"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Muros y Solera: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoMurosRomana"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+
+        <TextView
+            android:id="@+id/tvResultadoEscaleraTotal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Escalera Total: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoMurosYSoleraRomana"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <TextView
+            android:id="@+id/tvResultadoTotalPiscina"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Total Piscina: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoEscaleraTotal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <TextView
+            android:id="@+id/tvResultadoPerimetroPiscinaRomana"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Perímetro: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoTotalPiscina"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <TextView
+            android:id="@+id/tvResultadoMediacanasRomana"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Mediacañas: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoPerimetroPiscinaRomana"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <!-- Botón Guardar -->
+        <Button
+            android:id="@+id/btnGuardarRomana"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:backgroundTint="@color/button_blue"
+            android:textColor="@color/button_text_white"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoMediacanasRomana"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <TextView
+            android:id="@+id/vacio3"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:layout_constraintTop_toBottomOf="@id/btnGuardarRomana"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -1,0 +1,86 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TiposPiscinas"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/tvTitulo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Elige el tipo de piscina:"
+            android:textSize="20sp"
+            android:textColor="@color/text_blue"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <!-- Botón: Piscina Rectangular -->
+        <Button
+            android:id="@+id/btnPiscinaRectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/button_blue"
+            android:text="Piscina Rectangular"
+            android:textColor="@color/button_text_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
+
+        <!-- Botón: Piscina Escalera Romana -->
+        <Button
+            android:id="@+id/btnPiscinaEscaleraRomana"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Piscina con Escalera Romana"
+            android:backgroundTint="@color/button_blue"
+            android:textColor="@color/button_text_white"
+            app:layout_constraintTop_toBottomOf="@id/btnPiscinaRectangular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <!-- Botón: Piscina Escalera Rectangular -->
+        <Button
+            android:id="@+id/btnPiscinaEscaleraRectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Piscina con Escalera Rectangular"
+            android:backgroundTint="@color/button_blue"
+            android:textColor="@color/button_text_white"
+            app:layout_constraintTop_toBottomOf="@id/btnPiscinaEscaleraRomana"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <!-- Imagen abajo -->
+        <ImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:contentDescription="Icono de nuevo proyecto"
+            android:src="@drawable/piscina"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -1,0 +1,351 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Rectangular_Rectangular"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Recuadro para el nombre del proyecto -->
+        <EditText
+            android:id="@+id/etNombreProyectoRectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del proyecto"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:backgroundTint="@color/input_blue"
+            android:textColor="@color/text_blue"
+            android:textColorHint="@color/accent_orange"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="24dp" />
+
+        <!-- Primera fila: m, x, M -->
+        <TextView
+            android:id="@+id/tvMRectangular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="24dp"
+            android:text="m"
+            android:textColor="@color/text_blue"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etNombreProyectoRectangular" />
+
+        <TextView
+            android:id="@+id/tvXRectangular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="104dp"
+            android:layout_marginTop="24dp"
+            android:text="x"
+            android:textColor="@color/text_blue"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/tvMRectangular"
+            app:layout_constraintTop_toBottomOf="@id/etNombreProyectoRectangular" />
+
+        <TextView
+            android:id="@+id/tvCapitalMRectangular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="24dp"
+            android:text="M"
+            android:textColor="@color/text_blue"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/tvXRectangular"
+            app:layout_constraintTop_toBottomOf="@id/etNombreProyectoRectangular" />
+
+        <EditText
+            android:id="@+id/etValorMRectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Introduce m"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:backgroundTint="@color/input_blue"
+            android:textColor="@color/text_blue"
+            android:textColorHint="@color/accent_orange"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tvMRectangular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/etValorCapitalMRectangular"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/etValorCapitalMRectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Introduce M"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:backgroundTint="@color/input_blue"
+            android:textColor="@color/text_blue"
+            android:textColorHint="@color/accent_orange"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tvCapitalMRectangular"
+            app:layout_constraintStart_toEndOf="@id/etValorMRectangular"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp" />
+
+        <!-- Segunda fila: h, x, H -->
+        <TextView
+            android:id="@+id/tvHRectangular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="32dp"
+            android:text="h"
+            android:textColor="@color/text_blue"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etValorCapitalMRectangular" />
+
+        <TextView
+            android:id="@+id/tvXHRectangular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="108dp"
+            android:layout_marginTop="32dp"
+            android:text="--"
+            android:textColor="@color/text_blue"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/tvHRectangular"
+            app:layout_constraintTop_toBottomOf="@id/etValorCapitalMRectangular" />
+
+        <TextView
+            android:id="@+id/tvCapitalHRectangular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="32dp"
+            android:text="H"
+            android:textColor="@color/text_blue"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/tvXHRectangular"
+            app:layout_constraintTop_toBottomOf="@id/etValorCapitalMRectangular" />
+
+        <EditText
+            android:id="@+id/etValorHRectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:hint="Introduce h"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:backgroundTint="@color/input_blue"
+            android:textColor="@color/text_blue"
+            android:textColorHint="@color/accent_orange"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            app:layout_constraintEnd_toStartOf="@id/etValorCapitalHRectangular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHRectangular" />
+
+        <EditText
+            android:id="@+id/etValorCapitalHRectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Introduce H"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:backgroundTint="@color/input_blue"
+            android:textColor="@color/text_blue"
+            android:textColorHint="@color/accent_orange"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tvCapitalHRectangular"
+            app:layout_constraintStart_toEndOf="@id/etValorHRectangular"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp" />
+
+        <!-- Nueva fila: Escalera -->
+        <TextView
+            android:id="@+id/tvEscaleraRectangular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Escalera"
+            android:textSize="18sp"
+            android:textColor="@color/text_blue"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toBottomOf="@id/etValorCapitalHRectangular"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/etValorEscalera1Rectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:hint="Introduce valor de l"
+            android:backgroundTint="@color/input_blue"
+            android:textColor="@color/text_blue"
+            android:textColorHint="@color/accent_orange"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/etValorEscalera2Rectangular"
+            app:layout_constraintStart_toEndOf="@id/tvEscaleraRectangular"
+            app:layout_constraintTop_toBottomOf="@id/etValorCapitalHRectangular" />
+
+        <!-- Resultados de las operaciones -->
+        <EditText
+            android:id="@+id/etValorEscalera2Rectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:hint="Introduce valor de L"
+            android:backgroundTint="@color/input_blue"
+            android:textColor="@color/text_blue"
+            android:textColorHint="@color/accent_orange"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/etValorEscalera1Rectangular"
+            app:layout_constraintTop_toBottomOf="@id/etValorCapitalHRectangular" />
+
+        <TextView
+            android:id="@+id/tvResultadoSoleraRectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Solera: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/etValorEscalera1Rectangular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <TextView
+            android:id="@+id/tvResultadoMurosRectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Muros: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoSoleraRectangular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <TextView
+            android:id="@+id/tvResultadoMurosYSoleraRectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Muros y Solera: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoMurosRectangular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+
+        <TextView
+            android:id="@+id/tvResultadoEscaleraTotalRectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Escalera Total: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoMurosYSoleraRectangular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <TextView
+            android:id="@+id/tvResultadoTotalPiscinaRectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Total Piscina: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoEscaleraTotalRectangular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <TextView
+            android:id="@+id/tvResultadoPerimetroPiscinaRectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Perímetro: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoTotalPiscinaRectangular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <TextView
+            android:id="@+id/tvResultadoMediacanasRectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Mediacañas: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoPerimetroPiscinaRectangular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <!-- Botón Guardar -->
+        <Button
+            android:id="@+id/btnGuardarRectangular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:backgroundTint="@color/button_blue"
+            android:textColor="@color/button_text_white"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoMediacanasRectangular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <TextView
+            android:id="@+id/vacio2"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:layout_constraintTop_toBottomOf="@id/btnGuardarRectangular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -14,45 +14,42 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 
 public class Rectangular extends Fragment {
 
+    // Campos de entrada y resultados
     private EditText etNombreProyecto, etValorM, etValorCapitalM, etValorH, etValorCapitalH;
     private TextView tvResultadoSolera, tvResultadoMuros, tvResultadoTotalSuperficie, tvResultadoPerimetroPiscina, tvResultadoMediacanas;
     private SharedViewModel sharedViewModel;
 
     public Rectangular() {
-        super(R.layout.fragment_rectangular);
+        super(R.layout.fragment_rectangular); // Asocia el layout al fragmento.
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Inicializar los campos de entrada
+        // Inicialización de vistas.
         etNombreProyecto = view.findViewById(R.id.etNombreProyecto);
         etValorM = view.findViewById(R.id.etValorM);
         etValorCapitalM = view.findViewById(R.id.etValorCapitalM);
         etValorH = view.findViewById(R.id.etValorH);
         etValorCapitalH = view.findViewById(R.id.etValorCapitalH);
 
-        // Inicializar los TextViews para los resultados
         tvResultadoSolera = view.findViewById(R.id.tvResultadoSolera);
         tvResultadoMuros = view.findViewById(R.id.tvResultadoMuros);
         tvResultadoTotalSuperficie = view.findViewById(R.id.tvResultadoTotalSuperficie);
         tvResultadoPerimetroPiscina = view.findViewById(R.id.tvResultadoPerimetroPiscina);
         tvResultadoMediacanas = view.findViewById(R.id.tvResultadoMediacanas);
 
-        // Añadir TextWatchers a los campos de entrada
+        // Configura el cálculo automático al cambiar el texto.
         TextWatcher textWatcher = new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -60,32 +57,34 @@ public class Rectangular extends Fragment {
             }
         };
 
+        // Asigna el TextWatcher a los campos relevantes.
         etValorM.addTextChangedListener(textWatcher);
         etValorCapitalM.addTextChangedListener(textWatcher);
         etValorH.addTextChangedListener(textWatcher);
         etValorCapitalH.addTextChangedListener(textWatcher);
 
+        // Inicializa el ViewModel compartido.
         sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
+        // Configura el botón de guardar.
         Button btnGuardar = view.findViewById(R.id.btnGuardar);
-        btnGuardar.setOnClickListener(v -> guardarProyecto(v));
-
+        btnGuardar.setOnClickListener(this::guardarProyecto);
     }
 
+    // Calcula los resultados con base en los valores ingresados.
     private void calcularResultados() {
         double m = obtenerValorDeCampo(etValorM);
         double M = obtenerValorDeCampo(etValorCapitalM);
         double h = obtenerValorDeCampo(etValorH);
         double H = obtenerValorDeCampo(etValorCapitalH);
 
-        // Operaciones
         double solera = m * M;
         double muros = (M * (h + H)) + ((m - 2) * h);
         double totalSuperficie = solera + muros;
         double perimetro = 2 * m + 2 * M;
         double mediacanas = m + M + M + h + H + h + H;
 
-        // Actualizar los TextViews
+        // Actualiza los resultados en los TextViews.
         tvResultadoSolera.setText(String.format("Solera: %.2f m²", solera));
         tvResultadoMuros.setText(String.format("Muros: %.2f m²", muros));
         tvResultadoTotalSuperficie.setText(String.format("Total Superficie: %.2f m²", totalSuperficie));
@@ -93,6 +92,7 @@ public class Rectangular extends Fragment {
         tvResultadoMediacanas.setText(String.format("Mediacanas: %.2f ml", mediacanas));
     }
 
+    // Obtiene el valor numérico de un campo de entrada.
     private double obtenerValorDeCampo(EditText campo) {
         String texto = campo.getText().toString().trim();
         if (texto.isEmpty()) {
@@ -105,6 +105,7 @@ public class Rectangular extends Fragment {
         }
     }
 
+    // Guarda el proyecto en el ViewModel compartido y navega de regreso.
     private void guardarProyecto(View view) {
         String nombreProyecto = etNombreProyecto.getText().toString().trim();
         if (nombreProyecto.isEmpty()) {
@@ -112,7 +113,7 @@ public class Rectangular extends Fragment {
             return;
         }
 
-        // Preparar detalles
+        // Crea los detalles del proyecto.
         String detalles = String.format(
                 " %s\n %s\n %s\n %s\n %s",
                 tvResultadoSolera.getText().toString(),
@@ -122,20 +123,20 @@ public class Rectangular extends Fragment {
                 tvResultadoMediacanas.getText().toString()
         );
 
-        // Crear un nuevo proyecto y agregarlo al ViewModel
+        // Agrega el proyecto al ViewModel.
         Project proyecto = new Project(nombreProyecto, detalles);
         sharedViewModel.addProject(proyecto);
 
         Toast.makeText(requireContext(), "Proyecto guardado exitosamente", Toast.LENGTH_SHORT).show();
 
-        // Limpiar los campos
+        // Limpia los campos de entrada.
         etNombreProyecto.setText("");
         etValorM.setText("");
         etValorCapitalM.setText("");
         etValorH.setText("");
         etValorCapitalH.setText("");
 
-        // Navegar de vuelta al bottom1Fragment
+        // Navega de regreso al fragmento anterior.
         NavController navController = Navigation.findNavController(view);
         navController.navigate(R.id.action_rectangular_to_bottom1Fragment);
     }

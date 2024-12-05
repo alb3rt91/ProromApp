@@ -15,17 +15,22 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 
+/**
+ * Fragmento para gestionar proyectos rectangulares con escalera romana.
+ */
 public class Rectangular_Romana extends Fragment {
 
+    // Campos de entrada
     private EditText etNombreProyectoRomana, etValorMRomana, etValorCapitalMRomana, etValorHRomana, etValorCapitalHRomana, etValorEscalera;
+
+    // Resultados
     private TextView tvResultadoSoleraRomana, tvResultadoMurosRomana, tvResultadoMurosYSoleraRomana, tvResultadoEscaleraTotal, tvResultadoTotalPiscina, tvResultadoPerimetroPiscinaRomana, tvResultadoMediacanasRomana;
 
     private RectangularRomanaViewModel rectangularRomanaViewModel;
 
     public Rectangular_Romana() {
-        super(R.layout.fragment_rectangular__romana);
+        super(R.layout.fragment_rectangular__romana); // Asociar layout al fragmento
     }
 
     @Override
@@ -40,7 +45,7 @@ public class Rectangular_Romana extends Fragment {
         etValorCapitalHRomana = view.findViewById(R.id.etValorCapitalHRomana);
         etValorEscalera = view.findViewById(R.id.etValorEscalera);
 
-        // Inicializar los TextViews para los resultados
+        // Inicializar los TextViews de resultados
         tvResultadoSoleraRomana = view.findViewById(R.id.tvResultadoSoleraRomana);
         tvResultadoMurosRomana = view.findViewById(R.id.tvResultadoMurosRomana);
         tvResultadoMurosYSoleraRomana = view.findViewById(R.id.tvResultadoMurosYSoleraRomana);
@@ -49,7 +54,7 @@ public class Rectangular_Romana extends Fragment {
         tvResultadoPerimetroPiscinaRomana = view.findViewById(R.id.tvResultadoPerimetroPiscinaRomana);
         tvResultadoMediacanasRomana = view.findViewById(R.id.tvResultadoMediacanasRomana);
 
-        // Añadir TextWatchers a los campos de entrada
+        // Configurar TextWatchers para calcular automáticamente los resultados
         TextWatcher textWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -63,27 +68,30 @@ public class Rectangular_Romana extends Fragment {
             }
         };
 
+        // Asignar el TextWatcher a los campos relevantes
         etValorMRomana.addTextChangedListener(textWatcher);
         etValorCapitalMRomana.addTextChangedListener(textWatcher);
         etValorHRomana.addTextChangedListener(textWatcher);
         etValorCapitalHRomana.addTextChangedListener(textWatcher);
         etValorEscalera.addTextChangedListener(textWatcher);
 
-        rectangularRomanaViewModel= new ViewModelProvider(requireActivity()).get(RectangularRomanaViewModel.class);
+        // Inicializar el ViewModel
+        rectangularRomanaViewModel = new ViewModelProvider(requireActivity()).get(RectangularRomanaViewModel.class);
 
+        // Configurar el botón de guardar
         Button btnGuardar = view.findViewById(R.id.btnGuardarRomana);
-        btnGuardar.setOnClickListener(v -> guardarProyecto(v));
+        btnGuardar.setOnClickListener(this::guardarProyecto);
     }
 
+    // Método para calcular los resultados
     private void calcularResultados() {
-        // Obtener los valores de los campos
         double m = obtenerValorDeCampo(etValorMRomana);
         double M = obtenerValorDeCampo(etValorCapitalMRomana);
         double h = obtenerValorDeCampo(etValorHRomana);
         double H = obtenerValorDeCampo(etValorCapitalHRomana);
         double escalera = obtenerValorDeCampo(etValorEscalera);
 
-        // Calcular resultados
+        // Realizar cálculos
         double solera = m * M;
         double muros = (M * (h + H)) + (H * m) + ((m - 2 * escalera) * h);
         double murosYSolera = muros + solera;
@@ -105,6 +113,7 @@ public class Rectangular_Romana extends Fragment {
         tvResultadoMediacanasRomana.setText(String.format("Mediacañas: %.2f ml", mediacanas));
     }
 
+    // Método para obtener el valor numérico de un campo
     private double obtenerValorDeCampo(EditText campo) {
         String texto = campo.getText().toString().trim();
         if (texto.isEmpty()) {
@@ -113,10 +122,11 @@ public class Rectangular_Romana extends Fragment {
         try {
             return Double.parseDouble(texto);
         } catch (NumberFormatException e) {
-            return 0.0; // Si el texto no es un número válido, devolvemos 0
+            return 0.0;
         }
     }
 
+    // Método para guardar el proyecto
     private void guardarProyecto(View view) {
         String nombreProyecto = etNombreProyectoRomana.getText().toString().trim();
         if (nombreProyecto.isEmpty()) {
@@ -124,7 +134,7 @@ public class Rectangular_Romana extends Fragment {
             return;
         }
 
-        // Preparar detalles
+        // Preparar los detalles
         String detallesRectangular = String.format(
                 " %s\n %s\n %s\n %s\n %s\n %s\n %s\n",
                 tvResultadoSoleraRomana.getText().toString(),
@@ -136,13 +146,13 @@ public class Rectangular_Romana extends Fragment {
                 tvResultadoMediacanasRomana.getText().toString()
         );
 
-        // Crear un nuevo proyecto y agregarlo al ViewModel
+        // Crear proyecto y agregarlo al ViewModel
         RectangularRomanaProject proyecto = new RectangularRomanaProject(nombreProyecto, detallesRectangular);
         rectangularRomanaViewModel.addProject(proyecto);
 
         Toast.makeText(requireContext(), "Proyecto guardado exitosamente", Toast.LENGTH_SHORT).show();
 
-        // Limpiar los campos
+        // Limpiar campos
         etNombreProyectoRomana.setText("");
         etValorMRomana.setText("");
         etValorCapitalMRomana.setText("");
@@ -150,7 +160,7 @@ public class Rectangular_Romana extends Fragment {
         etValorCapitalHRomana.setText("");
         etValorEscalera.setText("");
 
-        // Navegar de vuelta al bottom1Fragment
+        // Navegar de regreso
         NavController navController = Navigation.findNavController(view);
         navController.navigate(R.id.action_rectangular_Romana_to_bottom1Fragment);
     }
