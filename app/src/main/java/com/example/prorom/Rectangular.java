@@ -19,7 +19,7 @@ public class Rectangular extends Fragment {
 
     // Campos de entrada y resultados
     private EditText etNombreProyecto, etValorM, etValorCapitalM, etValorH, etValorCapitalH;
-    private TextView tvResultadoSolera, tvResultadoMuros, tvResultadoTotalSuperficie, tvResultadoPerimetroPiscina, tvResultadoMediacanas;
+    private TextView tvResultadoSolera, tvResultadoMuros, tvResultadoTotalSuperficie, tvResultadoPerimetroPiscina, tvResultadoMediacanas, tvResultadoDiagonal;
     private SharedViewModel sharedViewModel;
 
     public Rectangular() {
@@ -42,6 +42,7 @@ public class Rectangular extends Fragment {
         tvResultadoTotalSuperficie = view.findViewById(R.id.tvResultadoTotalSuperficie);
         tvResultadoPerimetroPiscina = view.findViewById(R.id.tvResultadoPerimetroPiscina);
         tvResultadoMediacanas = view.findViewById(R.id.tvResultadoMediacanas);
+        tvResultadoDiagonal = view.findViewById(R.id.tvResultadoDiagonal);
 
         // Configura el cálculo automático al cambiar el texto.
         TextWatcher textWatcher = new TextWatcher() {
@@ -83,6 +84,7 @@ public class Rectangular extends Fragment {
         double totalSuperficie = solera + muros;
         double perimetro = 2 * m + 2 * M;
         double mediacanas = m + M + M + h + H + h + H;
+        double diagonal = Math.sqrt((m * m) + (M * M));
 
         // Actualiza los resultados en los TextViews.
         tvResultadoSolera.setText(String.format("Solera: %.2f m²", solera));
@@ -90,6 +92,7 @@ public class Rectangular extends Fragment {
         tvResultadoTotalSuperficie.setText(String.format("Total Superficie: %.2f m²", totalSuperficie));
         tvResultadoPerimetroPiscina.setText(String.format("Perímetro: %.2f ml", perimetro));
         tvResultadoMediacanas.setText(String.format("Mediacanas: %.2f ml", mediacanas));
+        tvResultadoDiagonal.setText(String.format("Diagonal: %.2f ml", diagonal));
     }
 
     // Obtiene el valor numérico de un campo de entrada.
@@ -115,12 +118,13 @@ public class Rectangular extends Fragment {
 
         // Crea los detalles del proyecto.
         String detalles = String.format(
-                " %s\n %s\n %s\n %s\n %s",
+                " %s\n %s\n %s\n %s\n %s\n %s",
                 tvResultadoSolera.getText().toString(),
                 tvResultadoMuros.getText().toString(),
                 tvResultadoTotalSuperficie.getText().toString(),
                 tvResultadoPerimetroPiscina.getText().toString(),
-                tvResultadoMediacanas.getText().toString()
+                tvResultadoMediacanas.getText().toString(),
+                tvResultadoDiagonal.getText().toString()
         );
 
         // Agrega el proyecto al ViewModel.

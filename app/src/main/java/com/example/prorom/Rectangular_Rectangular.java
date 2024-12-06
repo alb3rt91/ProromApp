@@ -27,7 +27,7 @@ public class Rectangular_Rectangular extends Fragment {
 
     // Resultados.
     private TextView tvResultadoSoleraRectangular, tvResultadoMurosRectangular, tvResultadoMurosYSoleraRectangular,
-            tvResultadoTotalEscaleraRectangular, tvResultadoTotalPiscinaRectangular, tvResultadoPerimetroPiscinaRectangular, tvResultadoMediacanasRectangular;
+            tvResultadoTotalEscaleraRectangular, tvResultadoTotalPiscinaRectangular, tvResultadoPerimetroPiscinaRectangular, tvResultadoMediacanasRectangular, tvResultadoDiagonalRectangular;
 
     private RectangularRectangularViewModel rectangularRectangularViewModelViewModel;
 
@@ -56,6 +56,7 @@ public class Rectangular_Rectangular extends Fragment {
         tvResultadoTotalPiscinaRectangular = view.findViewById(R.id.tvResultadoTotalPiscinaRectangular);
         tvResultadoPerimetroPiscinaRectangular = view.findViewById(R.id.tvResultadoPerimetroPiscinaRectangular);
         tvResultadoMediacanasRectangular = view.findViewById(R.id.tvResultadoMediacanasRectangular);
+        tvResultadoDiagonalRectangular = view.findViewById(R.id.tvResultadoDiagonalRectangular);
 
         // Configurar TextWatchers para calcular automáticamente los resultados.
         TextWatcher textWatcher = new TextWatcher() {
@@ -106,6 +107,7 @@ public class Rectangular_Rectangular extends Fragment {
         double totalPiscina = soleraYMuros + totalEscalera;
         double perimetro = 2 * m + 2 * M + 2 * l;
         double mediacanas = 2 * (M + m) + 2 * (h + H);
+        double diagonal = Math.sqrt((m * m) + (M * M));
 
         // Actualizar los TextViews con los resultados.
         tvResultadoSoleraRectangular.setText(String.format("Solera: %.2f m²", solera));
@@ -115,6 +117,7 @@ public class Rectangular_Rectangular extends Fragment {
         tvResultadoTotalPiscinaRectangular.setText(String.format("Total Piscina: %.2f m²", totalPiscina));
         tvResultadoPerimetroPiscinaRectangular.setText(String.format("Perímetro: %.2f ml", perimetro));
         tvResultadoMediacanasRectangular.setText(String.format("Mediacañas: %.2f ml", mediacanas));
+        tvResultadoDiagonalRectangular.setText(String.format("Diagonal: %.2f ml", diagonal));
     }
 
     // Obtiene el valor numérico de un campo de entrada.
@@ -140,14 +143,15 @@ public class Rectangular_Rectangular extends Fragment {
 
         // Crear detalles del proyecto.
         String detallesRectangular = String.format(
-                " %s\n %s\n  %s\n %s\n %s\n %s\n %s\n",
+                " %s\n %s\n  %s\n %s\n %s\n %s\n %s\n %s\n",
                 tvResultadoSoleraRectangular.getText().toString(),
                 tvResultadoMurosRectangular.getText().toString(),
                 tvResultadoMurosYSoleraRectangular.getText().toString(),
                 tvResultadoTotalEscaleraRectangular.getText().toString(),
                 tvResultadoTotalPiscinaRectangular.getText().toString(),
                 tvResultadoPerimetroPiscinaRectangular.getText().toString(),
-                tvResultadoMediacanasRectangular.getText().toString()
+                tvResultadoMediacanasRectangular.getText().toString(),
+                tvResultadoDiagonalRectangular.getText().toString()
         );
 
         // Agregar proyecto al ViewModel.

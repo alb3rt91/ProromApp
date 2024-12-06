@@ -242,20 +242,34 @@
         android:layout_marginTop="8dp"
         android:layout_marginHorizontal="16dp" />
 
-    <Button
-        android:id="@+id/btnGuardar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Guardar"
-        android:padding="12dp"
-        android:textSize="16sp"
-        android:backgroundTint="@color/button_blue"
-        android:textColor="@color/button_text_white"
-        app:layout_constraintTop_toBottomOf="@id/tvResultadoMediacanas"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"
-        android:layout_marginHorizontal="16dp" />
+        <TextView
+            android:id="@+id/tvResultadoDiagonal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Diagonal: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoMediacanas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
+        <Button
+            android:id="@+id/btnGuardar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="48dp"
+            android:backgroundTint="@color/button_blue"
+            android:padding="12dp"
+            android:text="Guardar"
+            android:textColor="@color/button_text_white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.531"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoMediacanas" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -25,7 +25,9 @@ public class Rectangular_Romana extends Fragment {
     private EditText etNombreProyectoRomana, etValorMRomana, etValorCapitalMRomana, etValorHRomana, etValorCapitalHRomana, etValorEscalera;
 
     // Resultados
-    private TextView tvResultadoSoleraRomana, tvResultadoMurosRomana, tvResultadoMurosYSoleraRomana, tvResultadoEscaleraTotal, tvResultadoTotalPiscina, tvResultadoPerimetroPiscinaRomana, tvResultadoMediacanasRomana;
+    private TextView tvResultadoSoleraRomana, tvResultadoMurosRomana, tvResultadoMurosYSoleraRomana,
+            tvResultadoEscaleraTotal, tvResultadoTotalPiscina, tvResultadoPerimetroPiscinaRomana,
+            tvResultadoMediacanasRomana, tvResultadoDiagonalRomana;
 
     private RectangularRomanaViewModel rectangularRomanaViewModel;
 
@@ -53,6 +55,7 @@ public class Rectangular_Romana extends Fragment {
         tvResultadoTotalPiscina = view.findViewById(R.id.tvResultadoTotalPiscina);
         tvResultadoPerimetroPiscinaRomana = view.findViewById(R.id.tvResultadoPerimetroPiscinaRomana);
         tvResultadoMediacanasRomana = view.findViewById(R.id.tvResultadoMediacanasRomana);
+        tvResultadoDiagonalRomana = view.findViewById(R.id.tvResultadoDiagonalRomana);
 
         // Configurar TextWatchers para calcular automáticamente los resultados
         TextWatcher textWatcher = new TextWatcher() {
@@ -102,6 +105,7 @@ public class Rectangular_Romana extends Fragment {
         double totalPiscina = murosYSolera + escaleraTotal;
         double perimetro = 2 * m + 2 * M - 2 * escalera + perimetroEscalera;
         double mediacanas = m + 2 * M + 2 * h + 2 * H + perimetroEscalera + (m - 2 * escalera);
+        double diagonal = Math.sqrt((m * m) + (M * M));
 
         // Mostrar resultados en los TextViews
         tvResultadoSoleraRomana.setText(String.format("Solera: %.2f m²", solera));
@@ -111,6 +115,7 @@ public class Rectangular_Romana extends Fragment {
         tvResultadoTotalPiscina.setText(String.format("Total Piscina: %.2f m²", totalPiscina));
         tvResultadoPerimetroPiscinaRomana.setText(String.format("Perímetro: %.2f ml", perimetro));
         tvResultadoMediacanasRomana.setText(String.format("Mediacañas: %.2f ml", mediacanas));
+        tvResultadoDiagonalRomana.setText(String.format("Diagonal: %.2f ml", diagonal));
     }
 
     // Método para obtener el valor numérico de un campo
@@ -136,14 +141,15 @@ public class Rectangular_Romana extends Fragment {
 
         // Preparar los detalles
         String detallesRectangular = String.format(
-                " %s\n %s\n %s\n %s\n %s\n %s\n %s\n",
+                " %s\n %s\n %s\n %s\n %s\n %s\n %s\n %s\n",
                 tvResultadoSoleraRomana.getText().toString(),
                 tvResultadoMurosRomana.getText().toString(),
                 tvResultadoMurosYSoleraRomana.getText().toString(),
                 tvResultadoEscaleraTotal.getText().toString(),
                 tvResultadoTotalPiscina.getText().toString(),
                 tvResultadoPerimetroPiscinaRomana.getText().toString(),
-                tvResultadoMediacanasRomana.getText().toString()
+                tvResultadoMediacanasRomana.getText().toString(),
+                tvResultadoDiagonalRomana.getText().toString()
         );
 
         // Crear proyecto y agregarlo al ViewModel

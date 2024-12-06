@@ -242,6 +242,19 @@
             android:layout_marginTop="8dp"
             android:layout_marginHorizontal="16dp" />
 
+        <TextView
+            android:id="@+id/tvResultadoDiagonal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Diagonal: "
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvResultadoMediacanas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp" />
+
         <Button
             android:id="@+id/btnGuardar"
             android:layout_width="0dp"
